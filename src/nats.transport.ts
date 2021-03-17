@@ -15,6 +15,7 @@ export class NatsTransport extends TransportBase {
   protected correlationIdHeader = 'X-CHEEP-CORRELATION-ID'
 
   private codec: nats.Codec<string>
+  private i = 0
 
   constructor(
     protected options: TransportOptions & {
@@ -32,7 +33,11 @@ export class NatsTransport extends TransportBase {
       /** optional authentication method */
       token?: string
     },
-    protected utils: TransportUtils,
+    protected utils: TransportUtils = {
+      newId: () => Date.now().toString() + (this.i++).toString(),
+      jsonEncode: JSON.stringify,
+      jsonDecode: JSON.parse,
+    },
   ) {
     super(options, utils)
 
