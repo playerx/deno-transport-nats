@@ -1,2 +1,2 @@
 // core
-export * from './src/rabbitmq.transport.ts'
+export * from './src/nats.transport.ts'

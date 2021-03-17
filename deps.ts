@@ -1,5 +1,3 @@
-export * as amqp from 'https://deno.land/x/amqp@v0.15.0/mod.ts'
-
 export {
   TransportBase,
   normalizeError,
@@ -12,3 +10,5 @@ export type {
   SendMessageProps,
   SendReplyMessageProps,
 } from 'https://raw.githubusercontent.com/playerx/deno-transport/master/mod.ts'
+
+export * as nats from 'https://deno.land/x/nats/src/mod.ts'
